@@ -2,11 +2,17 @@ cache:
   - yarn: true
   - directories: "node_modules"
 
+env:
+  - A_KEY: foo
+  - A_KEY: bar
+
+
 install:
   - yarn global add gatsby
   - yarn
 
 script:
+  - echo "A_KEY: ${A_KEY}"
   - export PATH=$(yarn global dir)/node_modules/.bin:$PATH
   - yarn deploy
 
